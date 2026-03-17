@@ -284,6 +284,17 @@
     .services-grid { grid-template-columns:1fr; }
     .hero-stats { gap:20px; }
   }
+
+  /* PRICING TEASER */
+  .pricing-teaser {{ background:var(--white); padding:90px 80px; }}
+  .pt-inner {{ max-width:600px; }}
+  .pt-inner p {{
+    font-size:15px; line-height:1.8; color:#6B5040; font-weight:300;
+    margin-top:20px; margin-bottom:32px;
+  }}
+  .pt-actions {{ display:flex; gap:14px; flex-wrap:wrap; }}
+  @media(max-width:900px){{ .pricing-teaser {{ padding:64px 28px; }} }}
+
 </style>
 </head>
 <body>
@@ -382,7 +393,7 @@
     </div>
   </div>
   <div class="services-more">
-    <a href="about.html#services" class="btn-secondary">Все направления →</a>
+    <a href="about.html" class="btn-secondary">Все направления →</a>
   </div>
 </section>
 
@@ -409,65 +420,16 @@
   </div>
 </section>
 
-<!-- PRICING PREVIEW -->
-<section class="pricing-preview">
-  <div class="pricing-preview-head">
-    <div>
-      <div class="section-tag">Консультации</div>
-      <h2 class="section-title">Форматы<br><em>и стоимость</em></h2>
+<!-- PRICING TEASER -->
+<section class="pricing-teaser">
+  <div class="pt-inner">
+    <div class="section-tag">Консультации</div>
+    <h2 class="section-title">Форматы<br><em>и стоимость</em></h2>
+    <p>Онлайн-консультации по эндокринологии и диетологии — Zoom, Яндекс.Телемост или переписка. Форматы от разовой консультации до месячного сопровождения.</p>
+    <div class="pt-actions">
+      <a href="pricing.html" class="btn-primary">Смотреть все форматы →</a>
+      <a href="https://olimp5.ru/doctors/voronova-yana-nikolaevna/" target="_blank" class="btn-secondary">📆 Записаться</a>
     </div>
-    <a href="pricing.html" class="btn-secondary" style="flex-shrink:0;">Все форматы →</a>
-  </div>
-  <div class="pricing-cols">
-    <div class="pcol">
-      <div class="pcol-icon">🦋</div>
-      <h3>Эндокринология</h3>
-      <p>Онлайн · Zoom / Яндекс.Телемост</p>
-      <div class="price-list">
-        <div class="price-row">
-          <span class="price-row-name">Первичная консультация</span>
-          <span class="price-row-val">3 500 ₽</span>
-        </div>
-        <div class="price-row">
-          <span class="price-row-name">Повторная консультация</span>
-          <span class="price-row-val">3 000 ₽</span>
-        </div>
-        <div class="price-row">
-          <span class="price-row-name">По переписке</span>
-          <span class="price-row-val">1 500 ₽</span>
-        </div>
-        <div class="price-row">
-          <span class="price-row-name">Сопровождение 1 мес.</span>
-          <span class="price-row-val">6 000 ₽</span>
-        </div>
-      </div>
-    </div>
-    <div class="pcol pcol--green">
-      <div class="pcol-icon">🥗</div>
-      <h3>Диетология</h3>
-      <p>Онлайн · с анализом дневника питания и PDF-рекомендациями</p>
-      <div class="price-list">
-        <div class="price-row">
-          <span class="price-row-name">Первичная консультация</span>
-          <span class="price-row-val">5 000 ₽</span>
-        </div>
-        <div class="price-row">
-          <span class="price-row-name">Повторная консультация</span>
-          <span class="price-row-val">3 500 ₽</span>
-        </div>
-        <div class="price-row">
-          <span class="price-row-name">Сопровождение 1 мес.</span>
-          <span class="price-row-val">10 000 ₽</span>
-        </div>
-        <div class="price-row">
-          <span class="price-row-name">Продление сопровождения</span>
-          <span class="price-row-val">9 000 ₽</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="pricing-more">
-    <a href="pricing.html" class="btn-primary">📆 Записаться на консультацию</a>
   </div>
 </section>
 
