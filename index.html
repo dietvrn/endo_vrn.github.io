@@ -784,6 +784,147 @@
     .results-grid { grid-template-columns: 1fr; }
   }
 
+
+  /* ── PRICING ROWS ── */
+  .pricing-row {
+    width: 100%; display: flex; justify-content: space-between;
+    align-items: center; gap: 16px;
+    padding: 16px 0; border-bottom: 1px solid var(--warm);
+    background: none; border-left: none; border-right: none; border-top: none;
+    cursor: pointer; text-align: left;
+    transition: all 0.2s; font-family: 'Mulish', sans-serif;
+  }
+  .pricing-row:hover { background: var(--cream); margin: 0 -20px; padding: 16px 20px; border-radius: 12px; border-bottom-color: transparent; }
+  .pricing-row--featured { background: linear-gradient(90deg, rgba(212,232,194,0.35), transparent); margin: 4px -20px; padding: 16px 20px; border-radius: 12px; }
+  .pricing-row--featured:hover { background: linear-gradient(90deg, rgba(212,232,194,0.6), transparent); }
+  .pr-name { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .pr-sub  { font-size: 12px; color: #8A7060; font-weight: 300; line-height: 1.4; }
+  .pr-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .pr-price { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--accent); white-space: nowrap; }
+  .pr-arrow { font-size: 16px; color: var(--muted); transition: transform 0.2s; }
+  .pricing-row:hover .pr-arrow { transform: translateX(4px); color: var(--accent); }
+
+  .pricing-notice-top {
+    margin: 0 36px 4px; padding: 12px 16px;
+    background: rgba(168,204,140,0.2); border-radius: 10px;
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 13px; color: #5A7A40; line-height: 1.6;
+  }
+  .notice-icon { flex-shrink: 0; }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 1000;
+    background: rgba(30,20,10,0.55);
+    backdrop-filter: blur(6px);
+    align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.active { display: flex; }
+
+  .modal-box {
+    background: white; border-radius: 28px;
+    padding: 48px 44px; max-width: 480px; width: 100%;
+    position: relative;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.25);
+    animation: modalIn 0.3s ease;
+  }
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to   { opacity: 1; transform: none; }
+  }
+  .modal-close {
+    position: absolute; top: 18px; right: 20px;
+    background: var(--cream); border: none; border-radius: 50%;
+    width: 34px; height: 34px; cursor: pointer;
+    font-size: 14px; color: var(--text-md);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .modal-close:hover { background: var(--sand); }
+  .modal-icon { font-size: 36px; margin-bottom: 14px; }
+  .modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 600; color: var(--deep);
+    margin-bottom: 6px; line-height: 1.2;
+  }
+  .modal-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 600; color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .modal-desc {
+    font-size: 15px; line-height: 1.75; color: #6B5040;
+    font-weight: 300; margin-bottom: 16px;
+  }
+  .modal-meta {
+    background: var(--cream); border-radius: 12px;
+    padding: 14px 18px; margin-bottom: 28px;
+    font-size: 13px; color: #7A6050; line-height: 1.65;
+  }
+  .modal-btn { width: 100%; justify-content: center; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text);
+    padding: 0;
+  }
+  .footer-top {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px; padding: 56px 80px 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 600; color: white;
+    margin-bottom: 6px;
+  }
+  .footer-spec {
+    font-size: 13px; color: rgba(255,255,255,0.45);
+    letter-spacing: 0.06em; margin-bottom: 20px;
+  }
+  .footer-tg {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(42,171,238,0.12);
+    border: 1px solid rgba(42,171,238,0.25);
+    border-radius: 30px; padding: 8px 16px;
+    text-decoration: none; color: #7FD0F5;
+    font-size: 13px; font-weight: 600;
+    transition: all 0.2s;
+  }
+  .footer-tg:hover { background: rgba(42,171,238,0.22); color: white; }
+  .footer-links-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(255,255,255,0.35);
+    margin-bottom: 16px;
+  }
+  .footer-link {
+    display: block; text-decoration: none;
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    margin-bottom: 10px; transition: color 0.2s;
+  }
+  .footer-link:hover { color: white; }
+  .footer-req-name {
+    font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.8);
+    margin-bottom: 6px;
+  }
+  .footer-req-inn {
+    font-size: 13px; color: rgba(255,255,255,0.4);
+  }
+  .footer-bottom {
+    padding: 20px 80px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    font-size: 12px; color: rgba(255,255,255,0.25);
+  }
+
+  @media (max-width: 900px) {
+    .footer-top { grid-template-columns: 1fr; padding: 40px 28px 32px; gap: 32px; }
+    .footer-bottom { padding: 16px 28px; flex-direction: column; }
+    .pricing-items { padding: 8px 20px 24px; }
+    .pricing-col-header { padding: 24px 20px 18px; }
+    .pricing-notice-top { margin: 0 20px 4px; }
+  }
+
 </style>
 </head>
 <body>
@@ -1216,37 +1357,49 @@
       <div class="pricing-col-header">
         <div class="pricing-col-icon">🦋</div>
         <h3>Эндокринология</h3>
-        <p>Онлайн-консультация<br>Zoom / Яндекс.Телемост</p>
+        <p>Онлайн-консультация · Zoom / Яндекс.Телемост</p>
       </div>
       <div class="pricing-items">
-        <div class="pricing-item">
-          <div class="pi-info">
-            <div class="pi-name">Первичная консультация</div>
-            <div class="pi-detail">40–60 минут</div>
+        <button class="pricing-row" onclick="openModal('endo-primary')">
+          <div class="pr-left">
+            <div class="pr-name">Первичная консультация</div>
+            <div class="pr-sub">40–60 минут</div>
           </div>
-          <div class="pi-price">3 500 ₽</div>
-        </div>
-        <div class="pricing-item">
-          <div class="pi-info">
-            <div class="pi-name">Повторная консультация</div>
-            <div class="pi-detail">40–60 минут · в течение 3 месяцев</div>
+          <div class="pr-right">
+            <div class="pr-price">3 500 ₽</div>
+            <div class="pr-arrow">→</div>
           </div>
-          <div class="pi-price">3 000 ₽</div>
-        </div>
-        <div class="pricing-item">
-          <div class="pi-info">
-            <div class="pi-name">Консультация по переписке</div>
-            <div class="pi-detail">В удобном мессенджере в течение дня</div>
+        </button>
+        <button class="pricing-row" onclick="openModal('endo-repeat')">
+          <div class="pr-left">
+            <div class="pr-name">Повторная консультация</div>
+            <div class="pr-sub">40–60 минут · в течение 3 месяцев</div>
           </div>
-          <div class="pi-price">1 500 ₽</div>
-        </div>
-        <div class="pricing-item pricing-item--featured">
-          <div class="pi-info">
-            <div class="pi-name">Сопровождение 1 месяц</div>
-            <div class="pi-detail">Мессенджер + 1 онлайн-встреча до 40 мин<br>После первичной консультации</div>
+          <div class="pr-right">
+            <div class="pr-price">3 000 ₽</div>
+            <div class="pr-arrow">→</div>
           </div>
-          <div class="pi-price">6 000 ₽</div>
-        </div>
+        </button>
+        <button class="pricing-row" onclick="openModal('endo-text')">
+          <div class="pr-left">
+            <div class="pr-name">Консультация по переписке</div>
+            <div class="pr-sub">В мессенджере в течение дня</div>
+          </div>
+          <div class="pr-right">
+            <div class="pr-price">1 500 ₽</div>
+            <div class="pr-arrow">→</div>
+          </div>
+        </button>
+        <button class="pricing-row pricing-row--featured" onclick="openModal('endo-support')">
+          <div class="pr-left">
+            <div class="pr-name">Сопровождение 1 месяц</div>
+            <div class="pr-sub">Мессенджер + 1 онлайн-встреча до 40 мин</div>
+          </div>
+          <div class="pr-right">
+            <div class="pr-price">6 000 ₽</div>
+            <div class="pr-arrow">→</div>
+          </div>
+        </button>
       </div>
     </div>
 
@@ -1255,58 +1408,53 @@
       <div class="pricing-col-header">
         <div class="pricing-col-icon">🥗</div>
         <h3>Диетология</h3>
-        <p>Онлайн-консультация<br>Zoom / Яндекс.Телемост</p>
+        <p>Онлайн-консультация · Zoom / Яндекс.Телемост</p>
       </div>
-
-      <div class="pricing-notice">
+      <div class="pricing-notice-top">
         <span class="notice-icon">📝</span>
-        <span>Перед консультацией прошу вести <strong>дневник питания 3–4 дня</strong>. После этого я провожу оценку и готовлю индивидуальные рекомендации в PDF.</span>
+        <span>Перед консультацией прошу вести <strong>дневник питания 3–4 дня</strong>. После этого провожу оценку и готовлю индивидуальные рекомендации в PDF.</span>
       </div>
-
       <div class="pricing-items">
-        <div class="pricing-item">
-          <div class="pi-info">
-            <div class="pi-name">Первичная консультация</div>
-            <div class="pi-detail">60 минут · анализ питания + PDF с рекомендациями</div>
+        <button class="pricing-row" onclick="openModal('diet-primary')">
+          <div class="pr-left">
+            <div class="pr-name">Первичная консультация</div>
+            <div class="pr-sub">60 минут · PDF с рекомендациями</div>
           </div>
-          <div class="pi-price">5 000 ₽</div>
-        </div>
-        <button class="pi-expand-btn" onclick="toggleDetails('diet-details')">
-          Что входит в первичную консультацию ↓
+          <div class="pr-right">
+            <div class="pr-price">5 000 ₽</div>
+            <div class="pr-arrow">→</div>
+          </div>
         </button>
-        <div class="pi-details" id="diet-details">
-          Комплексный анализ питания · персональная корректировка рациона · оценка макро- и микронутриентного состава · примерный рацион под вашу жизнь · разбор страхов и мифов о питании · PDF-документ с рекомендациями по итогу встречи
-        </div>
-
-        <div class="pricing-item">
-          <div class="pi-info">
-            <div class="pi-name">Повторная консультация</div>
-            <div class="pi-detail">40 минут · в течение 1 месяца после первичной</div>
+        <button class="pricing-row" onclick="openModal('diet-repeat')">
+          <div class="pr-left">
+            <div class="pr-name">Повторная консультация</div>
+            <div class="pr-sub">40 минут · в течение 1 месяца</div>
           </div>
-          <div class="pi-price">3 500 ₽</div>
-        </div>
-
-        <div class="pricing-item pricing-item--featured">
-          <div class="pi-info">
-            <div class="pi-name">Сопровождение 1 месяц</div>
-            <div class="pi-detail">Мессенджер 08:00–20:00 МСК + 1 онлайн-встреча 40–60 мин</div>
+          <div class="pr-right">
+            <div class="pr-price">3 500 ₽</div>
+            <div class="pr-arrow">→</div>
           </div>
-          <div class="pi-price">10 000 ₽</div>
-        </div>
-        <button class="pi-expand-btn" onclick="toggleDetails('support-details')">
-          Что входит в сопровождение ↓
         </button>
-        <div class="pi-details" id="support-details">
-          8 недель на связи · постоянная корректировка рекомендаций · поддержка при срывах и эмоциональном голоде · определяем режим питания и размеры порций · учитесь понимать голод и насыщение · советы по выбору блюд в кафе, на праздниках, в командировках
-        </div>
-
-        <div class="pricing-item">
-          <div class="pi-info">
-            <div class="pi-name">Продление сопровождения</div>
-            <div class="pi-detail">Второй и последующие месяцы со скидкой</div>
+        <button class="pricing-row pricing-row--featured" onclick="openModal('diet-support')">
+          <div class="pr-left">
+            <div class="pr-name">Сопровождение 1 месяц</div>
+            <div class="pr-sub">Мессенджер 08:00–20:00 МСК + 1 онлайн-встреча</div>
           </div>
-          <div class="pi-price">9 000 ₽</div>
-        </div>
+          <div class="pr-right">
+            <div class="pr-price">10 000 ₽</div>
+            <div class="pr-arrow">→</div>
+          </div>
+        </button>
+        <button class="pricing-row" onclick="openModal('diet-extend')">
+          <div class="pr-left">
+            <div class="pr-name">Продление сопровождения</div>
+            <div class="pr-sub">Второй и последующие месяцы</div>
+          </div>
+          <div class="pr-right">
+            <div class="pr-price">9 000 ₽</div>
+            <div class="pr-arrow">→</div>
+          </div>
+        </button>
       </div>
     </div>
 
@@ -1318,6 +1466,21 @@
     </a>
   </div>
 </section>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-icon" id="modalIcon"></div>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <div class="modal-price" id="modalPrice"></div>
+    <p class="modal-desc" id="modalDesc"></p>
+    <div class="modal-meta" id="modalMeta"></div>
+    <a href="https://olimp5.ru/doctors/voronova-yana-nikolaevna/" target="_blank" class="btn-primary modal-btn">
+      📆 Записаться
+    </a>
+  </div>
+</div>
 
 <!-- CTA -->
 <section class="cta-section">
@@ -1331,36 +1494,41 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Воронова Я.Н.</div>
-  <div>Эндокринолог · Диетолог</div>
-  <div>
-    <a href="https://olimp5.ru/doctors/voronova-yana-nikolaevna/" target="_blank">
-      olimp5.ru →
-    </a>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">Воронова Я.Н.</div>
+      <div class="footer-spec">Эндокринолог · Диетолог</div>
+      <a href="https://t.me/endo_vrn" target="_blank" class="footer-tg">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.7 8c-.12.57-.46.71-.93.44l-2.58-1.9-1.24 1.2c-.14.14-.25.25-.51.25l.18-2.6 4.7-4.25c.2-.18-.05-.28-.32-.1L7.56 14.6l-2.52-.79c-.55-.17-.56-.55.12-.81l9.85-3.8c.46-.17.86.11.63.6z" fill="#2AABEE"/>
+        </svg>
+        <span>t.me/endo_vrn</span>
+      </a>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-links-col">
+        <div class="footer-links-title">Документы</div>
+        <a href="#" class="footer-link">Политика конфиденциальности</a>
+        <a href="#" class="footer-link">Пользовательское соглашение</a>
+        <a href="#" class="footer-link">Контакты и реквизиты</a>
+        <a href="#" class="footer-link">Публичная оферта</a>
+      </div>
+    </div>
+
+    <div class="footer-requisites">
+      <div class="footer-links-title">Реквизиты</div>
+      <div class="footer-req-name">Воронова Яна Николаевна</div>
+      <div class="footer-req-inn">ИНН: 11111</div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2025 Воронова Яна Николаевна. Все права защищены.</span>
+    <span>Информация на сайте носит ознакомительный характер и не заменяет консультацию врача.</span>
   </div>
 </footer>
 
-
-<script>
-
-function toggleDetails(id) {
-  const el = document.getElementById(id);
-  el.classList.toggle('open');
-  const btn = el.previousElementSibling;
-  btn.textContent = el.classList.contains('open')
-    ? btn.textContent.replace('↓','↑')
-    : btn.textContent.replace('↑','↓');
-}
-
-function toggleEdu() {
-  const list = document.getElementById('eduList');
-  const btn  = document.getElementById('eduBtn');
-  const span = btn.querySelector('span');
-  const isOpen = list.classList.contains('visible');
-  list.classList.toggle('visible');
-  btn.classList.toggle('open');
-  span.textContent = isOpen ? 'Показать дипломы и сертификаты' : 'Скрыть';
-}
-</script>
 </body>
+</html></body>
 </html>
