@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Контакты и реквизиты — Воронова Я.Н.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --cream:#FAF6F0; --warm:#F2EBE0; --sand:#E8D9C5; --muted:#C4A882;
+    --accent:#8B6F4E; --deep:#4A3728; --text:#2C1F14;
+    --pistachio:#7BAF60; --pist-l:#D4E8C2; --white:#FFFFFF;
+  }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Mulish',sans-serif; background:var(--cream); color:var(--text); }
+
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    padding:18px 40px; display:flex; align-items:center; justify-content:space-between;
+    background:rgba(250,246,240,0.92); backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--sand);
+  }
+  .nav-logo { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--deep); text-decoration:none; }
+  .nav-links { display:flex; gap:32px; list-style:none; }
+  .nav-links a { text-decoration:none; font-size:13px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); transition:color .2s; }
+  .nav-links a:hover { color:var(--deep); }
+  .nav-cta { background:var(--accent); color:white !important; padding:9px 22px; border-radius:30px; }
+  .nav-cta:hover { background:var(--deep) !important; }
+
+  .page-hero {
+    padding:130px 80px 80px; background:var(--deep);
+    position:relative; overflow:hidden;
+  }
+  .page-hero::after {
+    content:''; position:absolute; bottom:-2px; left:0; right:0; height:60px;
+    background:var(--cream); clip-path:ellipse(55% 100% at 50% 100%);
+  }
+  .blob { position:absolute; border-radius:50%; filter:blur(60px); opacity:.18; pointer-events:none; }
+  .section-tag {
+    font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--pist-l);
+    margin-bottom:16px; display:flex; align-items:center; gap:10px;
+  }
+  .section-tag::before { content:''; display:block; width:30px; height:2px; background:var(--pist-l); }
+  .section-tag.dark { color:var(--pistachio); }
+  .section-tag.dark::before { background:var(--pistachio); }
+  h1.page-title {
+    font-family:'Cormorant Garamond',serif; font-size:clamp(40px,5vw,64px);
+    font-weight:300; line-height:1.1; color:white; margin-bottom:16px;
+  }
+  h1.page-title em { font-style:italic; color:var(--muted); }
+  .page-sub { font-size:17px; font-weight:300; line-height:1.75; color:rgba(255,255,255,.6); max-width:500px; }
+
+  /* ── MAIN CONTENT ── */
+  .contacts-wrap {
+    max-width:1100px; margin:0 auto;
+    padding:80px 80px;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; align-items:start;
+  }
+
+  /* LEFT: contact cards */
+  .contact-cards { display:flex; flex-direction:column; gap:20px; }
+
+  .contact-card {
+    background:white; border-radius:22px; padding:28px 32px;
+    border:1.5px solid var(--sand); transition:all .3s;
+    display:flex; align-items:flex-start; gap:20px;
+  }
+  .contact-card:hover {
+    transform:translateY(-3px); border-color:var(--muted);
+    box-shadow:0 16px 48px rgba(139,111,78,.12);
+  }
+  .contact-card-icon {
+    width:52px; height:52px; border-radius:14px;
+    background:var(--warm); display:flex; align-items:center;
+    justify-content:center; font-size:22px; flex-shrink:0;
+  }
+  .contact-card-body { flex:1; }
+  .contact-card-label {
+    font-size:11px; font-weight:700; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); margin-bottom:6px;
+  }
+  .contact-card-value {
+    font-family:'Cormorant Garamond',serif; font-size:22px;
+    font-weight:600; color:var(--deep); margin-bottom:4px;
+  }
+  .contact-card-note { font-size:13px; color:#8A7060; font-weight:300; line-height:1.5; }
+  .contact-card-link {
+    display:inline-flex; align-items:center; gap:8px;
+    margin-top:12px; text-decoration:none;
+    background:var(--accent); color:white;
+    font-size:13px; font-weight:600; letter-spacing:.04em;
+    padding:10px 22px; border-radius:30px; transition:background .2s;
+  }
+  .contact-card-link:hover { background:var(--deep); }
+
+  .tg-card {
+    background:linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-color:#2AABEE33;
+  }
+  .tg-card:hover { border-color:#2AABEE66; }
+  .tg-card .contact-card-icon { background:rgba(42,171,238,.15); }
+  .tg-card .contact-card-label { color:rgba(255,255,255,.4); }
+  .tg-card .contact-card-value { color:white; }
+  .tg-card .contact-card-note { color:rgba(255,255,255,.5); }
+  .tg-card .contact-card-link {
+    background:rgba(42,171,238,.2); color:#7FD0F5;
+    border:1px solid rgba(42,171,238,.3);
+  }
+  .tg-card .contact-card-link:hover { background:rgba(42,171,238,.35); color:white; }
+
+  .booking-card {
+    background:linear-gradient(135deg, var(--accent) 0%, var(--deep) 100%);
+    border-color:transparent;
+  }
+  .booking-card .contact-card-icon { background:rgba(255,255,255,.15); }
+  .booking-card .contact-card-label { color:rgba(255,255,255,.5); }
+  .booking-card .contact-card-value { color:white; }
+  .booking-card .contact-card-note { color:rgba(255,255,255,.65); }
+  .booking-card .contact-card-link {
+    background:white; color:var(--accent);
+  }
+  .booking-card .contact-card-link:hover { background:var(--cream); }
+
+  /* RIGHT: requisites + docs */
+  .right-col { display:flex; flex-direction:column; gap:28px; }
+
+  .req-box {
+    background:white; border-radius:22px; padding:32px;
+    border:1.5px solid var(--sand);
+  }
+  .req-title {
+    font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600;
+    color:var(--deep); margin-bottom:20px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .req-row {
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:12px 0; border-bottom:1px solid var(--warm);
+    gap:12px;
+  }
+  .req-row:last-child { border-bottom:none; padding-bottom:0; }
+  .req-key { font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); flex-shrink:0; }
+  .req-val { font-size:15px; font-weight:500; color:var(--text); text-align:right; }
+
+  .docs-box {
+    background:var(--warm); border-radius:22px; padding:28px 32px;
+    border:1.5px solid var(--sand);
+  }
+  .docs-title {
+    font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600;
+    color:var(--deep); margin-bottom:18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .doc-link {
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:12px 0; border-bottom:1px solid var(--sand);
+    text-decoration:none; color:var(--text); transition:color .2s;
+    font-size:14px; font-weight:500;
+  }
+  .doc-link:last-child { border-bottom:none; padding-bottom:0; }
+  .doc-link:hover { color:var(--accent); }
+  .doc-link span { font-size:14px; opacity:.4; }
+
+  /* ── FOOTER ── */
+  footer { background:var(--text); }
+  .footer-top {
+    display:grid; grid-template-columns:1fr 1fr 1fr; gap:48px;
+    padding:56px 80px 48px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .footer-logo { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:white; margin-bottom:6px; }
+  .footer-spec { font-size:13px; color:rgba(255,255,255,.45); letter-spacing:.06em; margin-bottom:20px; }
+  .footer-tg {
+    display:inline-flex; align-items:center; justify-content:center;
+    background:rgba(42,171,238,.12); border:1px solid rgba(42,171,238,.25);
+    border-radius:50%; width:44px; height:44px; text-decoration:none; transition:all .2s;
+  }
+  .footer-tg:hover { background:rgba(42,171,238,.28); transform:scale(1.08); }
+  .footer-links-title { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.35); margin-bottom:16px; }
+  .footer-link { display:block; text-decoration:none; font-size:14px; color:rgba(255,255,255,.6); margin-bottom:10px; transition:color .2s; }
+  .footer-link:hover { color:white; }
+  .footer-req-name { font-size:15px; font-weight:600; color:rgba(255,255,255,.8); margin-bottom:6px; }
+  .footer-req-inn { font-size:13px; color:rgba(255,255,255,.4); }
+  .footer-bottom {
+    padding:20px 80px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+    font-size:12px; color:rgba(255,255,255,.25);
+  }
+
+  @media(max-width:900px) {
+    nav { padding:16px 24px; }
+    .nav-links { display:none; }
+    .page-hero { padding:110px 28px 70px; }
+    .contacts-wrap { grid-template-columns:1fr; padding:50px 28px; gap:32px; }
+    .footer-top { grid-template-columns:1fr; padding:40px 28px 32px; gap:28px; }
+    .footer-bottom { padding:16px 28px; flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Воронова Я.Н.</a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Направления</a></li>
+    <li><a href="about.html">О враче</a></li>
+    <li><a href="pricing.html">Консультации</a></li>
+    <li><a href="https://olimp5.ru/doctors/voronova-yana-nikolaevna/" target="_blank" class="nav-cta">Записаться</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="blob" style="width:360px;height:360px;background:#E8894A;top:-80px;right:-60px;"></div>
+  <div class="blob" style="width:260px;height:260px;background:#7BAF60;bottom:20px;left:-40px;"></div>
+  <div class="section-tag">Связь со мной</div>
+  <h1 class="page-title">Контакты<br>и <em>реквизиты</em></h1>
+  <p class="page-sub">Онлайн-консультации через Zoom или Яндекс.Телемост. Записаться можно по ссылке ниже.</p>
+</div>
+
+<div class="contacts-wrap">
+
+  <!-- LEFT: contacts -->
+  <div class="contact-cards">
+
+    <div class="section-tag dark" style="margin-bottom:4px;">Как связаться</div>
+
+    <!-- Telegram -->
+    <div class="contact-card tg-card">
+      <div class="contact-card-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.7 8c-.12.57-.46.71-.93.44l-2.58-1.9-1.24 1.2c-.14.14-.25.25-.51.25l.18-2.6 4.7-4.25c.2-.18-.05-.28-.32-.1L7.56 14.6l-2.52-.79c-.55-.17-.56-.55.12-.81l9.85-3.8c.46-.17.86.11.63.6z" fill="#2AABEE"/>
+        </svg>
+      </div>
+      <div class="contact-card-body">
+        <div class="contact-card-label">Telegram-канал</div>
+        <div class="contact-card-value">@endo_vrn</div>
+        <div class="contact-card-note">Полезные материалы по эндокринологии и питанию, новости и анонсы</div>
+        <a href="https://t.me/endo_vrn" target="_blank" class="contact-card-link">
+          Открыть канал →
+        </a>
+      </div>
+    </div>
+
+    <!-- Booking -->
+    <div class="contact-card booking-card">
+      <div class="contact-card-icon">📆</div>
+      <div class="contact-card-body">
+        <div class="contact-card-label">Запись на приём</div>
+        <div class="contact-card-value">olimp5.ru</div>
+        <div class="contact-card-note">Первичная и повторная консультация онлайн через Zoom или Яндекс.Телемост</div>
+        <a href="https://olimp5.ru/doctors/voronova-yana-nikolaevna/" target="_blank" class="contact-card-link">
+          Записаться →
+        </a>
+      </div>
+    </div>
+
+    <!-- Format -->
+    <div class="contact-card">
+      <div class="contact-card-icon">📹</div>
+      <div class="contact-card-body">
+        <div class="contact-card-label">Формат работы</div>
+        <div class="contact-card-value">Онлайн</div>
+        <div class="contact-card-note">
+          Консультации проводятся дистанционно в Zoom или Яндекс.Телемост.<br>
+          Сопровождение — в мессенджере.<br>
+          Приём ведётся по всей России.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: requisites + docs -->
+  <div class="right-col">
+
+    <div class="req-box">
+      <div class="req-title">📋 Реквизиты</div>
+      <div class="req-row">
+        <span class="req-key">ФИО</span>
+        <span class="req-val">Воронова Яна Николаевна</span>
+      </div>
+      <div class="req-row">
+        <span class="req-key">ИНН</span>
+        <span class="req-val">11111</span>
+      </div>
+      <div class="req-row">
+        <span class="req-key">Статус</span>
+        <span class="req-val">Индивидуальный предприниматель</span>
+      </div>
+    </div>
+
+    <div class="docs-box">
+      <div class="docs-title">📄 Документы</div>
+      <a href="https://github.com/dietvrn/endo_vrn.github.io/files/privacypolicy" target="_blank" class="doc-link">
+        Политика конфиденциальности <span>↗</span>
+      </a>
+      <a href="https://github.com/dietvrn/endo_vrn.github.io/files/soglashenie" target="_blank" class="doc-link">
+        Пользовательское соглашение <span>↗</span>
+      </a>
+      <a href="contacts.html" class="doc-link">
+        Контакты и реквизиты <span>→</span>
+      </a>
+      <a href="https://github.com/dietvrn/endo_vrn.github.io/files/oferta" target="_blank" class="doc-link">
+        Публичная оферта <span>↗</span>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">Воронова Я.Н.</div>
+      <div class="footer-spec">Эндокринолог · Диетолог</div>
+      <a href="https://t.me/endo_vrn" target="_blank" class="footer-tg" aria-label="Telegram">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.7 8c-.12.57-.46.71-.93.44l-2.58-1.9-1.24 1.2c-.14.14-.25.25-.51.25l.18-2.6 4.7-4.25c.2-.18-.05-.28-.32-.1L7.56 14.6l-2.52-.79c-.55-.17-.56-.55.12-.81l9.85-3.8c.46-.17.86.11.63.6z" fill="#2AABEE"/>
+        </svg>
+      </a>
+    </div>
+    <div>
+      <div class="footer-links-title">Документы</div>
+      <a href="https://github.com/dietvrn/endo_vrn.github.io/files/privacypolicy" target="_blank" class="footer-link">Политика конфиденциальности</a>
+      <a href="https://github.com/dietvrn/endo_vrn.github.io/files/soglashenie" target="_blank" class="footer-link">Пользовательское соглашение</a>
+      <a href="contacts.html" class="footer-link">Контакты и реквизиты</a>
+      <a href="https://github.com/dietvrn/endo_vrn.github.io/files/oferta" target="_blank" class="footer-link">Публичная оферта</a>
+    </div>
+    <div>
+      <div class="footer-links-title">Реквизиты</div>
+      <div class="footer-req-name">Воронова Яна Николаевна</div>
+      <div class="footer-req-inn">ИНН: 11111</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Воронова Яна Николаевна. Все права защищены.</span>
+    <span>Информация носит ознакомительный характер и не заменяет консультацию врача.</span>
+  </div>
+</footer>
+
+</body>
+</html>

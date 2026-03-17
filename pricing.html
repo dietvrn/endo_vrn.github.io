@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Форматы консультаций — Воронова Я.Н.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream:#FAF6F0; --warm:#F2EBE0; --sand:#E8D9C5; --muted:#C4A882;
+    --accent:#8B6F4E; --deep:#4A3728; --text:#2C1F14;
+    --pistachio:#7BAF60; --pist-l:#D4E8C2; --white:#FFFFFF;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Mulish', sans-serif; background: var(--cream); color: var(--text); }
+
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    padding: 18px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(250,246,240,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--sand);
+  }
+  .nav-logo { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--deep); text-decoration:none; }
+  .nav-links { display:flex; gap:32px; list-style:none; }
+  .nav-links a { text-decoration:none; font-size:13px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); transition:color .2s; }
+  .nav-links a:hover, .nav-links a.active { color:var(--deep); }
+  .nav-cta { background:var(--accent); color:white !important; padding:9px 22px; border-radius:30px; transition:background .2s !important; }
+  .nav-cta:hover { background:var(--deep) !important; }
+
+  .page-hero {
+    padding: 130px 80px 80px;
+    background: var(--deep);
+    position: relative; overflow: hidden;
+  }
+  .page-hero::after {
+    content:''; position:absolute; bottom:-2px; left:0; right:0; height:60px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-blob {
+    position:absolute; border-radius:50%; filter:blur(60px); opacity:.18; pointer-events:none;
+  }
+  .section-tag {
+    font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--pist-l);
+    margin-bottom:16px; display:flex; align-items:center; gap:10px;
+  }
+  .section-tag::before { content:''; display:block; width:30px; height:2px; background:var(--pist-l); }
+  .section-tag.dark { color:var(--pistachio); }
+  .section-tag.dark::before { background:var(--pistachio); }
+  h1.page-title {
+    font-family:'Cormorant Garamond',serif; font-size:clamp(40px,5vw,64px);
+    font-weight:300; line-height:1.1; color:white; margin-bottom:16px;
+  }
+  h1.page-title em { font-style:italic; color:var(--muted); }
+  .page-sub { font-size:17px; font-weight:300; line-height:1.75; color:rgba(255,255,255,.6); max-width:560px; }
+
+  section { padding: 80px 80px; }
+  .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(30px,3vw,46px); font-weight:300; line-height:1.2; color:var(--deep); }
+  .section-title em { font-style:italic; color:var(--accent); }
+
+  .btn-primary {
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--accent); color:white; text-decoration:none;
+    font-size:14px; font-weight:600; letter-spacing:.05em;
+    padding:16px 36px; border-radius:50px;
+    box-shadow:0 8px 32px rgba(139,111,78,.35); transition:all .3s;
+  }
+  .btn-primary:hover { background:var(--deep); transform:translateY(-2px); }
+
+  footer { background:var(--text); }
+  .footer-top {
+    display:grid; grid-template-columns:1fr 1fr 1fr; gap:48px;
+    padding:56px 80px 48px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .footer-logo { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:white; margin-bottom:6px; }
+  .footer-spec { font-size:13px; color:rgba(255,255,255,.45); letter-spacing:.06em; margin-bottom:20px; }
+  .footer-tg {
+    display:inline-flex; align-items:center; justify-content:center;
+    background:rgba(42,171,238,.12); border:1px solid rgba(42,171,238,.25);
+    border-radius:50%; width:44px; height:44px; text-decoration:none; transition:all .2s;
+  }
+  .footer-tg:hover { background:rgba(42,171,238,.28); transform:scale(1.08); }
+  .footer-links-title { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.35); margin-bottom:16px; }
+  .footer-link { display:block; text-decoration:none; font-size:14px; color:rgba(255,255,255,.6); margin-bottom:10px; transition:color .2s; }
+  .footer-link:hover { color:white; }
+  .footer-req-name { font-size:15px; font-weight:600; color:rgba(255,255,255,.8); margin-bottom:6px; }
+  .footer-req-inn { font-size:13px; color:rgba(255,255,255,.4); }
+  .footer-bottom {
+    padding:20px 80px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+    font-size:12px; color:rgba(255,255,255,.25);
+  }
+  @media(max-width:900px){
+    nav { padding:16px 24px; }
+    .nav-links { display:none; }
+    .page-hero { padding:110px 28px 70px; }
+    section { padding:60px 28px; }
+    .footer-top { grid-template-columns:1fr; padding:40px 28px 32px; gap:28px; }
+    .footer-bottom { padding:16px 28px; flex-direction:column; }
+  }
+</style>
+
+<style>
+  .pricing-columns { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:52px; }
+  .pricing-col { border-radius:28px; border:1.5px solid var(--sand); overflow:hidden; }
+  .pricing-col--accent { border-color:var(--pistachio); box-shadow:0 8px 40px rgba(123,175,96,.12); }
+  .pricing-col-header { padding:32px 36px 28px; background:var(--warm); border-bottom:1.5px solid var(--sand); }
+  .pricing-col--accent .pricing-col-header { background:var(--pist-l); border-bottom-color:var(--pistachio); }
+  .pricing-col-icon { font-size:32px; margin-bottom:10px; }
+  .pricing-col-header h3 { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:600; color:var(--deep); margin-bottom:6px; }
+  .pricing-col-header p { font-size:13px; color:#7A6050; line-height:1.5; }
+  .pricing-items { padding:8px 36px 32px; }
+  .pricing-row {
+    width:100%; display:flex; justify-content:space-between; align-items:center; gap:16px;
+    padding:16px 0; border-bottom:1px solid var(--warm);
+    background:none; border-left:none; border-right:none; border-top:none;
+    cursor:pointer; text-align:left; transition:all .2s; font-family:'Mulish',sans-serif;
+  }
+  .pricing-row:hover { background:var(--cream); margin:0 -20px; padding:16px 20px; border-radius:12px; border-bottom-color:transparent; }
+  .pricing-row--featured { background:linear-gradient(90deg,rgba(212,232,194,.35),transparent); margin:4px -20px; padding:16px 20px; border-radius:12px; }
+  .pricing-row--featured:hover { background:linear-gradient(90deg,rgba(212,232,194,.6),transparent); }
+  .pr-name { font-size:15px; font-weight:600; color:var(--text); margin-bottom:3px; }
+  .pr-sub  { font-size:12px; color:#8A7060; font-weight:300; line-height:1.4; }
+  .pr-right { display:flex; align-items:center; gap:10px; flex-shrink:0; }
+  .pr-price { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--accent); white-space:nowrap; }
+  .pr-arrow { font-size:16px; color:var(--muted); transition:transform .2s; }
+  .pricing-row:hover .pr-arrow { transform:translateX(4px); color:var(--accent); }
+  .pricing-notice-top {
+    margin:0 36px 4px; padding:12px 16px; background:rgba(168,204,140,.2); border-radius:10px;
+    display:flex; gap:10px; align-items:flex-start; font-size:13px; color:#5A7A40; line-height:1.6;
+  }
+  .pricing-cta { text-align:center; margin-top:52px; }
+
+  .modal-overlay {
+    display:none; position:fixed; inset:0; z-index:1000;
+    background:rgba(30,20,10,.55); backdrop-filter:blur(6px);
+    align-items:center; justify-content:center; padding:20px;
+  }
+  .modal-overlay.active { display:flex; }
+  .modal-box {
+    background:white; border-radius:28px; padding:48px 44px;
+    max-width:480px; width:100%; position:relative;
+    box-shadow:0 40px 80px rgba(0,0,0,.25);
+    animation:modalIn .3s ease;
+  }
+  @keyframes modalIn { from{opacity:0;transform:translateY(20px) scale(.97)} to{opacity:1;transform:none} }
+  .modal-close {
+    position:absolute; top:18px; right:20px;
+    background:var(--cream); border:none; border-radius:50%;
+    width:34px; height:34px; cursor:pointer; font-size:14px;
+    color:var(--text); display:flex; align-items:center; justify-content:center; transition:background .2s;
+  }
+  .modal-close:hover { background:var(--sand); }
+  .modal-icon { font-size:36px; margin-bottom:14px; }
+  .modal-title { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; color:var(--deep); margin-bottom:6px; line-height:1.2; }
+  .modal-price { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:600; color:var(--accent); margin-bottom:20px; }
+  .modal-desc { font-size:15px; line-height:1.75; color:#6B5040; font-weight:300; margin-bottom:16px; }
+  .modal-meta { background:var(--cream); border-radius:12px; padding:14px 18px; margin-bottom:28px; font-size:13px; color:#7A6050; line-height:1.65; }
+  .modal-btn { width:100%; justify-content:center; }
+
+  @media(max-width:900px){
+    .pricing-columns { grid-template-columns:1fr; }
+    .pricing-items { padding:8px 20px 24px; }
+    .pricing-col-header { padding:24px 20px 18px; }
+    .pricing-notice-top { margin:0 20px 4px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Воронова Я.Н.</a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Направления</a></li>
+    <li><a href="about.html" >О враче</a></li>
+    <li><a href="pricing.html" class='active'>Консультации</a></li>
+    <li><a href="https://olimp5.ru/doctors/voronova-yana-nikolaevna/" target="_blank" class="nav-cta">Записаться</a></li>
+  </ul>
+</nav>
+
+
+<div class="page-hero">
+  <div class="hero-blob" style="width:400px;height:400px;background:#E8894A;top:-100px;right:-80px;"></div>
+  <div class="hero-blob" style="width:280px;height:280px;background:#7BAF60;bottom:40px;left:-60px;"></div>
+  <div class="section-tag">Запись на приём</div>
+  <h1 class="page-title">Форматы<br><em>консультаций</em></h1>
+  <p class="page-sub">Онлайн — удобно, доступно, эффективно. Выберите формат, который подходит вашему запросу.</p>
+</div>
+
+<section style="background:var(--white);">
+  <div class="pricing-columns">
+    <div class="pricing-col">
+      <div class="pricing-col-header">
+        <div class="pricing-col-icon">🦋</div>
+        <h3>Эндокринология</h3>
+        <p>Онлайн-консультация · Zoom / Яндекс.Телемост</p>
+      </div>
+      <div class="pricing-items">
+        <button class="pricing-row" onclick="openModal('endo-primary')">
+          <div class="pr-left"><div class="pr-name">Первичная консультация</div><div class="pr-sub">40–60 минут</div></div>
+          <div class="pr-right"><div class="pr-price">3 500 ₽</div><div class="pr-arrow">→</div></div>
+        </button>
+        <button class="pricing-row" onclick="openModal('endo-repeat')">
+          <div class="pr-left"><div class="pr-name">Повторная консультация</div><div class="pr-sub">40–60 минут · в течение 3 месяцев</div></div>
+          <div class="pr-right"><div class="pr-price">3 000 ₽</div><div class="pr-arrow">→</div></div>
+        </button>
+        <button class="pricing-row" onclick="openModal('endo-text')">
+          <div class="pr-left"><div class="pr-name">Консультация по переписке</div><div class="pr-sub">В мессенджере в течение дня</div></div>
+          <div class="pr-right"><div class="pr-price">1 500 ₽</div><div class="pr-arrow">→</div></div>
+        </button>
+        <button class="pricing-row pricing-row--featured" onclick="openModal('endo-support')">
+          <div class="pr-left"><div class="pr-name">Сопровождение 1 месяц</div><div class="pr-sub">Мессенджер + 1 онлайн-встреча до 40 мин</div></div>
+          <div class="pr-right"><div class="pr-price">6 000 ₽</div><div class="pr-arrow">→</div></div>
+        </button>
+      </div>
+    </div>
+
+    <div class="pricing-col pricing-col--accent">
+      <div class="pricing-col-header">
+        <div class="pricing-col-icon">🥗</div>
+        <h3>Диетология</h3>
+        <p>Онлайн-консультация · Zoom / Яндекс.Телемост</p>
+      </div>
+      <div class="pricing-notice-top">
+        <span>📝</span>
+        <span>Перед консультацией прошу вести <strong>дневник питания 3–4 дня</strong>. После этого провожу оценку и готовлю PDF с рекомендациями.</span>
+      </div>
+      <div class="pricing-items">
+        <button class="pricing-row" onclick="openModal('diet-primary')">
+          <div class="pr-left"><div class="pr-name">Первичная консультация</div><div class="pr-sub">60 минут · PDF с рекомендациями</div></div>
+          <div class="pr-right"><div class="pr-price">5 000 ₽</div><div class="pr-arrow">→</div></div>
+        </button>
+        <button class="pricing-row" onclick="openModal('diet-repeat')">
+          <div class="pr-left"><div class="pr-name">Повторная консультация</div><div class="pr-sub">40 минут · в течение 1 месяца</div></div>
+          <div class="pr-right"><div class="pr-price">3 500 ₽</div><div class="pr-arrow">→</div></div>
+        </button>
+        <button class="pricing-row pricing-row--featured" onclick="openModal('diet-support')">
+          <div class="pr-left"><div class="pr-name">Сопровождение 1 месяц</div><div class="pr-sub">Мессенджер 08:00–20:00 МСК + 1 онлайн-встреча</div></div>
+          <div class="pr-right"><div class="pr-price">10 000 ₽</div><div class="pr-arrow">→</div></div>
+        </button>
+        <button class="pricing-row" onclick="openModal('diet-extend')">
+          <div class="pr-left"><div class="pr-name">Продление сопровождения</div><div class="pr-sub">Второй и последующие месяцы</div></div>
+          <div class="pr-right"><div class="pr-price">9 000 ₽</div><div class="pr-arrow">→</div></div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="pricing-cta">
+    <a href="https://olimp5.ru/doctors/voronova-yana-nikolaevna/" target="_blank" class="btn-primary">📆 Записаться на консультацию</a>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-icon" id="modalIcon"></div>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <div class="modal-price" id="modalPrice"></div>
+    <p class="modal-desc" id="modalDesc"></p>
+    <div class="modal-meta" id="modalMeta"></div>
+    <a href="https://olimp5.ru/doctors/voronova-yana-nikolaevna/" target="_blank" class="btn-primary modal-btn">📆 Записаться</a>
+  </div>
+</div>
+
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">Воронова Я.Н.</div>
+      <div class="footer-spec">Эндокринолог · Диетолог</div>
+      <a href="https://t.me/endo_vrn" target="_blank" class="footer-tg" aria-label="Telegram">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.7 8c-.12.57-.46.71-.93.44l-2.58-1.9-1.24 1.2c-.14.14-.25.25-.51.25l.18-2.6 4.7-4.25c.2-.18-.05-.28-.32-.1L7.56 14.6l-2.52-.79c-.55-.17-.56-.55.12-.81l9.85-3.8c.46-.17.86.11.63.6z" fill="#2AABEE"/>
+        </svg>
+      </a>
+    </div>
+    <div>
+      <div class="footer-links-title">Документы</div>
+      <a href="https://github.com/dietvrn/endo_vrn.github.io/files/privacypolicy" target="_blank" class="footer-link">Политика конфиденциальности</a>
+      <a href="https://github.com/dietvrn/endo_vrn.github.io/files/soglashenie" target="_blank" class="footer-link">Пользовательское соглашение</a>
+      <a href="contacts.html" class="footer-link">Контакты и реквизиты</a>
+      <a href="https://github.com/dietvrn/endo_vrn.github.io/files/oferta" target="_blank" class="footer-link">Публичная оферта</a>
+    </div>
+    <div>
+      <div class="footer-links-title">Реквизиты</div>
+      <div class="footer-req-name">Воронова Яна Николаевна</div>
+      <div class="footer-req-inn">ИНН: 11111</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Воронова Яна Николаевна. Все права защищены.</span>
+    <span>Информация носит ознакомительный характер и не заменяет консультацию врача.</span>
+  </div>
+</footer>
+
+<script>
+const MODALS = {
+  'endo-primary': { icon:'🦋', title:'Первичная консультация эндокринолога', price:'3 500 ₽', desc:'Детальный разбор жалоб, истории болезни, анализ имеющихся обследований. Составление индивидуального плана диагностики и лечения.', meta:'⏱ 40–60 минут &nbsp;·&nbsp; 📹 Zoom / Яндекс.Телемост' },
+  'endo-repeat': { icon:'🦋', title:'Повторная консультация эндокринолога', price:'3 000 ₽', desc:'Оценка динамики лечения, коррекция терапии, разбор результатов новых анализов и обследований.', meta:'⏱ 40–60 минут &nbsp;·&nbsp; В течение 3 месяцев после первичного' },
+  'endo-text': { icon:'💬', title:'Консультация по переписке', price:'1 500 ₽', desc:'Ответы на конкретные вопросы, интерпретация анализов, уточнение рекомендаций в удобном мессенджере.', meta:'📱 В удобном мессенджере &nbsp;·&nbsp; Ответ в течение дня' },
+  'endo-support': { icon:'🤝', title:'Сопровождение 1 месяц (эндокринология)', price:'6 000 ₽', desc:'Постоянная поддержка на протяжении месяца: ответы на вопросы, коррекция лечения, мониторинг состояния.', meta:'📱 Мессенджер &nbsp;·&nbsp; 📹 1 онлайн-встреча до 40 минут &nbsp;·&nbsp; После первичной консультации' },
+  'diet-primary': { icon:'🥗', title:'Первичная консультация диетолога', price:'5 000 ₽', desc:'Комплексный анализ питания, персональная корректировка рациона, оценка макро- и микронутриентного состава, примерный рацион под вашу жизнь. Разбор страхов и мифов о питании.', meta:'⏱ 60 минут &nbsp;·&nbsp; 📄 PDF-документ с рекомендациями &nbsp;·&nbsp; 📹 Zoom / Яндекс.Телемост' },
+  'diet-repeat': { icon:'🥗', title:'Повторная консультация диетолога', price:'3 500 ₽', desc:'Оценка прогресса, корректировка рекомендаций, ответы на возникшие вопросы.', meta:'⏱ 40 минут &nbsp;·&nbsp; В течение 1 месяца после первичной' },
+  'diet-support': { icon:'🌿', title:'Сопровождение 1 месяц (диетология)', price:'10 000 ₽', desc:'8 недель на связи: постоянная корректировка, поддержка при срывах и эмоциональном голоде, помощь с внедрением пищевых привычек. Советы по выбору блюд в кафе, на праздниках, в командировках.', meta:'📱 Мессенджер 08:00–20:00 МСК &nbsp;·&nbsp; 📹 1 онлайн-встреча 40–60 минут' },
+  'diet-extend': { icon:'🔄', title:'Продление сопровождения', price:'9 000 ₽', desc:'Второй и последующие месяцы сопровождения со скидкой. Продолжаем работу по закреплению привычек и достижению устойчивого результата.', meta:'📱 Те же условия сопровождения &nbsp;·&nbsp; Скидка от первого месяца' },
+};
+function openModal(id) {
+  const d = MODALS[id]; if(!d) return;
+  document.getElementById('modalIcon').textContent = d.icon;
+  document.getElementById('modalTitle').textContent = d.title;
+  document.getElementById('modalPrice').textContent = d.price;
+  document.getElementById('modalDesc').textContent = d.desc;
+  document.getElementById('modalMeta').innerHTML = d.meta;
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+</script>
+</body>
+</html>
