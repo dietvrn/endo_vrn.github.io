@@ -287,11 +287,18 @@
 
   /* PRICING TEASER */
   .pricing-teaser {{ background:var(--white); padding:90px 80px; }}
-  .pt-inner {{ max-width:600px; }}
-  .pt-inner p {{
-    font-size:15px; line-height:1.8; color:#6B5040; font-weight:300;
-    margin-top:20px; margin-bottom:32px;
+  .pt-inner {{ max-width:640px; }}
+  .pt-top-row {{
+    display:flex; align-items:baseline; gap:16px;
+    flex-wrap:wrap; margin-bottom:20px;
   }}
+  .pt-top-row .section-tag {{ margin-bottom:0; }}
+  .pt-top-row .section-title {{ margin-bottom:0; }}
+  .pt-inner p {{
+    font-size:15px; line-height:1.75; color:#6B5040; font-weight:300;
+    margin-bottom:8px;
+  }}
+  .pt-inner p:last-of-type {{ margin-bottom:32px; }}
   .pt-actions {{ display:flex; gap:14px; flex-wrap:wrap; }}
   @media(max-width:900px){{ .pricing-teaser {{ padding:64px 28px; }} }}
 
@@ -423,9 +430,12 @@
 <!-- PRICING TEASER -->
 <section class="pricing-teaser">
   <div class="pt-inner">
-    <div class="section-tag">Консультации</div>
-    <h2 class="section-title">Форматы<br><em>и стоимость</em></h2>
-    <p>Онлайн-консультации по эндокринологии и диетологии — Zoom, Яндекс.Телемост или переписка. Форматы от разовой консультации до месячного сопровождения.</p>
+    <div class="pt-top-row">
+      <div class="section-tag">Консультации</div>
+      <h2 class="section-title">Форматы&nbsp;<em>и стоимость</em></h2>
+    </div>
+    <p>Онлайн-консультации по эндокринологии и диетологии —<br>Zoom, Яндекс.Телемост или переписка.</p>
+    <p>Форматы от разовой консультации до месячного сопровождения.</p>
     <div class="pt-actions">
       <a href="pricing.html" class="btn-primary">Смотреть все форматы →</a>
       <a href="https://olimp5.ru/doctors/voronova-yana-nikolaevna/" target="_blank" class="btn-secondary">📆 Записаться</a>
