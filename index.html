@@ -431,6 +431,17 @@
   .hero-actions{ animation: fadeUp 0.6s ease 0.5s both; }
   .hero-stats  { animation: fadeUp 0.6s ease 0.6s both; }
 
+  .hero-credentials {
+    display: flex; flex-direction: column; gap: 10px;
+    margin-bottom: 22px;
+  }
+  .credential-item {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; font-weight: 600; color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+  .cred-icon { font-size: 16px; }
+
   /* ── MOBILE ── */
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
@@ -448,6 +459,331 @@
     .hero-stats { gap: 24px; }
     .cta-section { padding: 70px 28px; }
   }
+
+  /* ── WHY ME ── */
+  .why-me {
+    background: var(--cream); padding: 100px 80px;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px; margin-top: 48px;
+  }
+  .why-card {
+    background: var(--white); border-radius: 24px;
+    padding: 36px; border: 1px solid var(--sand);
+    transition: all 0.3s;
+  }
+  .why-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(139,111,78,0.12);
+  }
+  .why-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px; font-weight: 300; color: var(--sand);
+    line-height: 1; margin-bottom: 16px;
+  }
+  .why-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 600; color: var(--deep);
+    margin-bottom: 12px;
+  }
+  .why-card p {
+    font-size: 14px; line-height: 1.75; color: #7A6050; font-weight: 300;
+  }
+
+  /* ── NOT DOING ── */
+  .not-doing {
+    background: var(--deep); padding: 70px 80px;
+  }
+  .not-doing-inner {
+    max-width: 860px; margin: 0 auto;
+    display: flex; gap: 40px; align-items: flex-start;
+  }
+  .not-doing-icon {
+    font-size: 48px; flex-shrink: 0; margin-top: 8px;
+  }
+  .not-doing-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px; font-weight: 300; color: white;
+    line-height: 1.2; margin-bottom: 12px;
+  }
+  .not-doing-title em { font-style: italic; color: var(--muted); }
+  .not-doing-sub {
+    font-size: 15px; color: rgba(255,255,255,0.6);
+    font-weight: 300; margin-bottom: 28px; line-height: 1.6;
+  }
+  .not-list {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  }
+  .not-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px; padding: 16px 20px;
+    font-size: 14px; color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+  }
+  .not-x {
+    color: #E88A74; font-weight: 700; font-size: 16px;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* ── EDUCATION ── */
+  .education {
+    background: var(--white); padding: 100px 80px;
+  }
+  .edu-intro {
+    font-size: 16px; color: #7A6050; font-weight: 300;
+    line-height: 1.7; margin-top: 16px; max-width: 560px;
+  }
+  .edu-toggle {
+    display: flex; align-items: center; gap: 12px;
+    margin-top: 36px;
+    background: var(--warm); border: 1.5px solid var(--muted);
+    color: var(--accent); font-family: 'Mulish', sans-serif;
+    font-size: 15px; font-weight: 600;
+    padding: 16px 32px; border-radius: 50px; cursor: pointer;
+    transition: all 0.3s; letter-spacing: 0.03em;
+  }
+  .edu-toggle:hover {
+    background: var(--sand); border-color: var(--accent);
+  }
+  .edu-toggle svg {
+    transition: transform 0.3s;
+  }
+  .edu-toggle.open svg {
+    transform: rotate(180deg);
+  }
+  .edu-list {
+    display: none; margin-top: 32px;
+    border-left: 2px solid var(--sand);
+    padding-left: 0;
+  }
+  .edu-list.visible { display: flex; flex-direction: column; }
+  .edu-item {
+    display: flex; gap: 28px;
+    padding: 20px 0 20px 32px;
+    border-bottom: 1px solid var(--warm);
+    position: relative;
+    transition: background 0.2s;
+  }
+  .edu-item::before {
+    content: '';
+    position: absolute; left: -7px; top: 28px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--sand); border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--muted);
+  }
+  .edu-item--highlight::before {
+    background: var(--pistachio);
+    box-shadow: 0 0 0 2px var(--pist-d);
+  }
+  .edu-item--highlight {
+    background: linear-gradient(90deg, var(--pist-l) 0%, transparent 60%);
+    margin-left: -32px; padding-left: 64px;
+    border-radius: 0 12px 12px 0;
+  }
+  .edu-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 600; color: var(--muted);
+    min-width: 90px; flex-shrink: 0; padding-top: 2px;
+  }
+  .edu-place {
+    font-size: 13px; font-weight: 700; color: var(--accent);
+    letter-spacing: 0.04em; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .edu-title {
+    font-size: 15px; font-weight: 400; color: var(--text);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 900px) {
+    .not-list { grid-template-columns: 1fr; }
+    .not-doing-inner { flex-direction: column; gap: 20px; }
+    .why-me { padding: 70px 28px; }
+    .not-doing { padding: 60px 28px; }
+    .education { padding: 70px 28px; }
+    .edu-item { flex-direction: column; gap: 4px; }
+  }
+
+
+  /* ── NUTRITION HERO ── */
+  .nutrition-hero {
+    background: var(--deep); padding: 100px 80px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+  }
+  .nutrition-hero .section-tag { color: var(--pist-l); }
+  .nutrition-hero .section-tag::before { background: var(--pist-l); }
+  .nutrition-hero .section-title { color: white; }
+  .nutrition-hero .section-title em { color: var(--muted); }
+  .nutrition-lead {
+    font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.7);
+    font-weight: 300; margin-top: 24px;
+  }
+  .nutrition-tagline {
+    margin-top: 20px; padding: 18px 24px;
+    background: rgba(168,204,140,0.15);
+    border-left: 3px solid var(--pistachio);
+    border-radius: 0 12px 12px 0;
+    font-size: 15px; color: var(--pist-l);
+    font-style: italic; line-height: 1.6;
+  }
+  .nutrition-principles {
+    display: flex; flex-direction: column; gap: 24px;
+  }
+  .np-item {
+    display: flex; gap: 18px; align-items: flex-start;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 20px 22px;
+  }
+  .np-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+  .np-item strong {
+    display: block; font-size: 15px; font-weight: 700;
+    color: white; margin-bottom: 6px;
+  }
+  .np-item p {
+    font-size: 13px; color: rgba(255,255,255,0.6);
+    font-weight: 300; line-height: 1.6; margin: 0;
+  }
+
+  /* ── RESULTS ── */
+  .results-section {
+    background: var(--cream); padding: 100px 80px;
+  }
+  .results-note {
+    font-size: 16px; color: #7A6050; font-weight: 300;
+    line-height: 1.7; max-width: 600px; margin-top: 16px; margin-bottom: 52px;
+  }
+  .results-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .result-card {
+    background: white; border-radius: 24px; padding: 32px;
+    border: 1px solid var(--sand); transition: all 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .result-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--pist-l), var(--pistachio));
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .result-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(139,111,78,0.12);
+  }
+  .result-card:hover::after { opacity: 1; }
+  .result-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+  .result-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px; font-weight: 600; color: var(--deep);
+    margin-bottom: 10px; line-height: 1.3;
+  }
+  .result-card p {
+    font-size: 14px; line-height: 1.75; color: #7A6050; font-weight: 300;
+  }
+
+  /* ── PRICING ── */
+  .pricing-section {
+    background: var(--white); padding: 100px 80px;
+  }
+  .pricing-columns {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 32px; margin-top: 52px;
+  }
+  .pricing-col {
+    border-radius: 28px; border: 1.5px solid var(--sand);
+    overflow: hidden;
+  }
+  .pricing-col--accent {
+    border-color: var(--pist);
+    box-shadow: 0 8px 40px rgba(123,175,96,0.12);
+  }
+  .pricing-col-header {
+    padding: 32px 36px 28px;
+    background: var(--warm);
+    border-bottom: 1.5px solid var(--sand);
+  }
+  .pricing-col--accent .pricing-col-header {
+    background: var(--pist-l);
+    border-bottom-color: var(--pist);
+  }
+  .pricing-col-icon { font-size: 32px; margin-bottom: 10px; }
+  .pricing-col-header h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 600; color: var(--deep);
+    margin-bottom: 6px;
+  }
+  .pricing-col-header p {
+    font-size: 13px; color: #7A6050; line-height: 1.5;
+  }
+  .pricing-items { padding: 8px 36px 32px; }
+  .pricing-item {
+    display: flex; justify-content: space-between;
+    align-items: flex-start; gap: 16px;
+    padding: 18px 0; border-bottom: 1px solid var(--warm);
+  }
+  .pricing-item--featured {
+    background: linear-gradient(90deg, rgba(212,232,194,0.3), transparent);
+    margin: 0 -36px; padding: 18px 36px;
+    border-radius: 0;
+  }
+  .pi-name {
+    font-size: 15px; font-weight: 600; color: var(--text);
+    margin-bottom: 4px;
+  }
+  .pi-detail {
+    font-size: 12.5px; color: #8A7060; font-weight: 300;
+    line-height: 1.5;
+  }
+  .pi-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 600; color: var(--accent);
+    white-space: nowrap; flex-shrink: 0; padding-top: 2px;
+  }
+  .pricing-notice {
+    margin: 16px 36px; padding: 14px 18px;
+    background: var(--warm); border-radius: 12px;
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 13px; color: #6B5040; line-height: 1.6;
+  }
+  .notice-icon { font-size: 16px; flex-shrink: 0; }
+  .pi-expand-btn {
+    background: none; border: none; cursor: pointer;
+    font-size: 12.5px; color: var(--pistachio);
+    font-family: 'Mulish', sans-serif; font-weight: 600;
+    padding: 4px 0 10px; text-align: left;
+    letter-spacing: 0.02em; transition: color 0.2s;
+  }
+  .pi-expand-btn:hover { color: var(--pist-dk); }
+  .pi-details {
+    display: none; font-size: 13px; color: #7A6050;
+    line-height: 1.7; font-weight: 300;
+    padding: 12px 16px; background: var(--cream);
+    border-radius: 10px; margin-bottom: 8px;
+  }
+  .pi-details.open { display: block; }
+  .pricing-cta {
+    text-align: center; margin-top: 52px;
+  }
+
+  @media (max-width: 900px) {
+    .nutrition-hero { grid-template-columns: 1fr; padding: 70px 28px; gap: 40px; }
+    .results-grid { grid-template-columns: 1fr 1fr; }
+    .results-section { padding: 70px 28px; }
+    .pricing-section { padding: 70px 28px; }
+    .pricing-columns { grid-template-columns: 1fr; }
+    .pricing-items { padding: 8px 24px 24px; }
+    .pricing-col-header { padding: 24px 24px 20px; }
+    .pricing-notice { margin: 12px 24px; }
+  }
+  @media (max-width: 600px) {
+    .results-grid { grid-template-columns: 1fr; }
+  }
+
 </style>
 </head>
 <body>
@@ -458,6 +794,7 @@
   <ul class="nav-links">
     <li><a href="#services">Направления</a></li>
     <li><a href="#about">О враче</a></li>
+    <li><a href="#pricing">Стоимость</a></li>
     <li><a href="https://olimp5.ru/doctors/voronova-yana-nikolaevna/" target="_blank" class="nav-cta">Записаться</a></li>
   </ul>
 </nav>
@@ -466,12 +803,23 @@
 <section class="hero">
   <div class="hero-left">
     <div class="hero-tag">Эндокринолог · Диетолог</div>
-    <h1>Понятная<br><em>эндокринология</em><br>и диетология</h1>
+    <h1>Врач-эндокринолог<br><em>и диетолог</em></h1>
     <div class="hero-name">Воронова Яна Николаевна</div>
+    <div class="hero-credentials">
+      <div class="credential-item">
+        <span class="cred-icon">🏅</span>
+        <span>Первая квалификационная категория по эндокринологии</span>
+      </div>
+      <div class="credential-item">
+        <span class="cred-icon">🩺</span>
+        <span>10 лет врачебной практики</span>
+      </div>
+    </div>
     <p class="hero-desc">
-      Медицинская помощь, основанная на доказательной медицине. 
-      Индивидуальный подход к каждому пациенту — от диагностики 
-      до долгосрочного сопровождения.
+      Комплексный подход к питанию и гормональному здоровью. В основе — доказательная медицина: только методы с подтверждённой эффективностью и безопасностью, без псевдонаучных концепций.
+    </p>
+    <p class="hero-desc" style="margin-top:-16px; font-size:15px;">
+      Для меня важно, чтобы пациент понимал своё состояние и причины рекомендаций — что происходит в организме, почему назначается лечение и каких результатов ожидать.
     </p>
     <div class="hero-actions">
       <a href="https://olimp5.ru/doctors/voronova-yana-nikolaevna/" target="_blank" class="btn-primary">
@@ -514,45 +862,223 @@
   <div class="services-intro">
     <div>
       <div class="section-tag">Направления работы</div>
-      <h2 class="section-title">Чем я <em>занимаюсь</em></h2>
+      <h2 class="section-title">В своей <em>практике</em></h2>
     </div>
     <p>
-      Комплексная диагностика и лечение эндокринных заболеваний. 
-      Работа с пациентами на всех этапах — от первичного приёма 
-      до долгосрочного наблюдения и коррекции терапии.
+      Я работаю с заболеваниями эндокринной системы и вопросами питания, 
+      где рацион является важной частью лечения и поддержания здоровья.
     </p>
   </div>
 
   <div class="services-grid">
     <div class="service-card">
-      <div class="service-icon">🩸</div>
-      <h3>Сахарный диабет</h3>
-      <p>Полное ведение пациентов с сахарным диабетом, подбор и коррекция терапии, помповая инсулинотерапия, интерпретация данных непрерывного мониторинга глюкозы.</p>
-    </div>
-    <div class="service-card">
       <div class="service-icon">🦋</div>
-      <h3>Щитовидная железа</h3>
-      <p>Диагностика и лечение узлового зоба, гипотиреоза, тиреотоксикоза, тиреоидитов. Комплексная оценка функции и структуры щитовидной железы.</p>
+      <h3>Заболевания щитовидной железы</h3>
+      <p>Консультирование при гипотиреозе, тиреотоксикозе, аутоиммунном тиреоидите, узловых образованиях и других нарушениях функции щитовидной железы.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon">🔬</div>
-      <h3>Эндокринные железы</h3>
-      <p>Заболевания паращитовидных желез (гипо-/гиперпаратиреоз), надпочечников (аденома), гипофиза (акромегалия, пролактинома).</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🦴</div>
-      <h3>Остеопороз</h3>
-      <p>Диагностика, лечение и профилактика остеопороза. Оценка рисков переломов, подбор терапии для сохранения плотности костной ткани.</p>
+      <div class="service-icon">🩸</div>
+      <h3>Сахарный диабет и нарушения углеводного обмена</h3>
+      <p>СД 1 и 2 типа, предиабет, гестационный диабет. Комплексный подход: диагностика, лечение, подбор питания и формирование образа жизни, поддерживающего контроль глюкозы.</p>
     </div>
     <div class="service-card">
       <div class="service-icon">⚖️</div>
-      <h3>Ожирение и вес</h3>
-      <p>Комплексное ведение и лечение ожирения. Подбор индивидуальных программ коррекции массы тела с учётом эндокринного статуса пациента.</p>
+      <h3>Избыточная масса тела и ожирение</h3>
+      <p>Снижение и стабилизация веса с учётом метаболических и гормональных факторов. Без строгих ограничительных диет и краткосрочных схем.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔬</div>
+      <h3>Метаболические нарушения</h3>
+      <p>Коррекция питания при метаболическом синдроме, нарушениях липидного обмена, подагре и других состояниях, связанных с обменом веществ.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🦴</div>
+      <h3>Нарушения кальциево-фосфорного обмена</h3>
+      <p>Гиперпаратиреоз, гипопаратиреоз, остеопороз и другие состояния, требующие комплексного подхода к лечению и питанию.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🧠</div>
+      <h3>Патология гипофиза и надпочечников</h3>
+      <p>Консультирование при гиперпролактинемии, акромегалии, несахарном диабете и других эндокринных заболеваниях.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🥗</div>
+      <h3>Индивидуальная коррекция питания</h3>
+      <p>Формирование сбалансированного рациона с учётом состояния здоровья, лабораторных показателей и образа жизни пациента.</p>
     </div>
     <div class="service-card">
       <div class="service-icon">📊</div>
-      <h3>Мониторинг глюкозы</h3>
-      <p>Профессиональная интерпретация данных систем непрерывного мониторинга глюкозы. Коррекция лечения пациентов на помповой инсулинотерапии.</p>
+      <h3>Помповая инсулинотерапия и НМГ</h3>
+      <p>Ведение пациентов на помповой инсулинотерапии. Профессиональная интерпретация данных систем непрерывного мониторинга глюкозы и коррекция лечения.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section class="why-me" id="why">
+  <div class="section-tag">Почему выбирают меня</div>
+  <h2 class="section-title">Мой <em>подход</em></h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-num">01</div>
+      <h3>Медицинская экспертиза</h3>
+      <p>Врач эндокринолог и диетолог с 10-летним клиническим опытом. Учитываю не только питание, но и особенности гормонального и метаболического здоровья.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">02</div>
+      <h3>Доказательная медицина</h3>
+      <p>Все рекомендации основаны на современных научных данных и международных клинических рекомендациях. Без псевдонаучных методов и практик без подтверждённой эффективности.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">03</div>
+      <h3>Индивидуальный подход</h3>
+      <p>Каждый организм и образ жизни уникальны. Рекомендации формируются с учётом состояния здоровья, привычек питания, целей и возможностей пациента.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">04</div>
+      <h3>Реалистичные изменения</h3>
+      <p>Вместо строгих диет и краткосрочных схем — система питания, которую можно поддерживать в обычной жизни. Особое внимание тем, кто уже пробовал диеты без устойчивого результата.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">05</div>
+      <h3>Понятные объяснения</h3>
+      <p>Важно, чтобы пациент понимал своё состояние и причины рекомендаций. Медицинские вопросы — простым языком: что происходит в организме и чего ожидать.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">06</div>
+      <h3>Поддержка в процессе</h3>
+      <p>При необходимости сопровождаю пациента в период внедрения новых привычек, помогая адаптировать рекомендации и справляться с возникающими трудностями.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NOT DOING -->
+<section class="not-doing">
+  <div class="not-doing-inner">
+    <div class="not-doing-icon">⚠️</div>
+    <div>
+      <div class="section-tag" style="color:var(--warm-or-nd)">Важно знать</div>
+      <h2 class="not-doing-title">Чего я <em>не делаю</em></h2>
+      <p class="not-doing-sub">В своей практике я не использую методы без доказанной эффективности:</p>
+      <div class="not-list">
+        <div class="not-item">
+          <span class="not-x">✕</span>
+          <span>Интегративные и псевдонаучные методы</span>
+        </div>
+        <div class="not-item">
+          <span class="not-x">✕</span>
+          <span>Детокс-программы и «очищения»</span>
+        </div>
+        <div class="not-item">
+          <span class="not-x">✕</span>
+          <span>Схемы приёма БАДов без медицинских показаний</span>
+        </div>
+        <div class="not-item">
+          <span class="not-x">✕</span>
+          <span>Модные диеты без доказательной эффективности</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="education" id="education">
+  <div class="section-tag">Профессиональная подготовка</div>
+  <h2 class="section-title">Моё <em>образование</em></h2>
+  <p class="edu-intro">Постоянное повышение квалификации — основа качественной медицинской помощи.</p>
+
+  <button class="edu-toggle" onclick="toggleEdu()" id="eduBtn">
+    <span>Показать дипломы и сертификаты</span>
+    <svg id="eduArrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <div class="edu-list" id="eduList">
+    <div class="edu-item">
+      <div class="edu-year">2009–2015</div>
+      <div class="edu-content">
+        <div class="edu-place">ВГМУ им. Н.Н. Бурденко</div>
+        <div class="edu-title">Специальность — лечебное дело</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2015–2017</div>
+      <div class="edu-content">
+        <div class="edu-place">ВГМУ им. Н.Н. Бурденко</div>
+        <div class="edu-title">Ординатура, специальность — эндокринология</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2017</div>
+      <div class="edu-content">
+        <div class="edu-place">ФГБУ Эндокринологический научный центр</div>
+        <div class="edu-title">Специализация «Организация и проведение школы обучения больных на помповой инсулинотерапии»</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2021</div>
+      <div class="edu-content">
+        <div class="edu-place">ВГМУ им. Н.Н. Бурденко</div>
+        <div class="edu-title">Профессиональная переподготовка — Ультразвуковая диагностика</div>
+      </div>
+    </div>
+    <div class="edu-item edu-item--highlight">
+      <div class="edu-year">2022</div>
+      <div class="edu-content">
+        <div class="edu-place">Квалификационная категория</div>
+        <div class="edu-title">🏅 Присвоена первая квалификационная категория по специальности «Эндокринология»</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2024</div>
+      <div class="edu-content">
+        <div class="edu-place">Москва</div>
+        <div class="edu-title">Повышение квалификации «Эндокринология репродуктивной системы»</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2025</div>
+      <div class="edu-content">
+        <div class="edu-place">Москва</div>
+        <div class="edu-title">Повышение квалификации «Гинекологическая эндокринология»</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2025</div>
+      <div class="edu-content">
+        <div class="edu-place">Москва</div>
+        <div class="edu-title">Повышение квалификации «Современная доказательная нутрициология для практикующего врача»</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2025–2026</div>
+      <div class="edu-content">
+        <div class="edu-place">ООО «Докстарклаб»</div>
+        <div class="edu-title">Профессиональная переподготовка: Диетология</div>
+      </div>
+    </div>
+    <div class="edu-item edu-item--highlight">
+      <div class="edu-year">2025–2026</div>
+      <div class="edu-content">
+        <div class="edu-place">Health Science</div>
+        <div class="edu-title">🌿 Член клуба доказательных нутрициологов</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2026</div>
+      <div class="edu-content">
+        <div class="edu-place">Севастополь</div>
+        <div class="edu-title">Повышение квалификации «Актуальные вопросы эндокринологии»</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2026</div>
+      <div class="edu-content">
+        <div class="edu-place">Москва</div>
+        <div class="edu-title">Повышение квалификации «Соматические аспекты расстройств пищевого поведения у взрослых»</div>
+      </div>
     </div>
   </div>
 </section>
@@ -595,6 +1121,204 @@
   </div>
 </section>
 
+<!-- NUTRITION INTRO -->
+<section class="nutrition-hero">
+  <div class="nutrition-hero-inner">
+    <div class="section-tag">Диетология</div>
+    <h2 class="section-title">Питание и здоровье<br>без диет <em>и крайностей</em></h2>
+    <p class="nutrition-lead">
+      Диеты не дали устойчивого результата? Я помогу выстроить питание, которое работает в реальной жизни — без строгих запретов, изматывающих ограничений и чувства вины.
+    </p>
+    <div class="nutrition-tagline">
+      Система, которую не нужно начинать заново каждый понедельник — гибкая и без постоянных срывов.
+    </div>
+  </div>
+  <div class="nutrition-principles">
+    <div class="np-item">
+      <div class="np-icon">🥗</div>
+      <div>
+        <strong>Разнообразие, не ограничения</strong>
+        <p>Вы сами определяете продукты, которые вам нравятся. Моя задача — помочь выстроить из них сбалансированную систему.</p>
+      </div>
+    </div>
+    <div class="np-item">
+      <div class="np-icon">🧭</div>
+      <div>
+        <strong>Голод и насыщение, не подсчёт калорий</strong>
+        <p>В основе — ориентир на ощущения тела, а не постоянный контроль граммов и цифр.</p>
+      </div>
+    </div>
+    <div class="np-item">
+      <div class="np-icon">📋</div>
+      <div>
+        <strong>Реалистичный и удобный рацион</strong>
+        <p>Рацион должен быть вкусным и вписываться в вашу повседневную жизнь — не в идеальную, а в реальную.</p>
+      </div>
+    </div>
+    <div class="np-item">
+      <div class="np-icon">🔬</div>
+      <div>
+        <strong>Доказательная база</strong>
+        <p>Все рекомендации формируются на основе актуальных международных клинических руководств по питанию.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results-section">
+  <div class="section-tag">Результаты работы</div>
+  <h2 class="section-title">Каких изменений<br>вы можете <em>достичь</em></h2>
+  <p class="results-note">Работа с питанием — это постепенный процесс. Цель — не краткосрочная диета, а устойчивые изменения, которые поддерживают здоровье и самочувствие.</p>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-icon">⚖️</div>
+      <h3>Стабилизация массы тела</h3>
+      <p>Вес снижается постепенно и без жёстких ограничений, что помогает удерживать результат в долгосрочной перспективе.</p>
+    </div>
+    <div class="result-card">
+      <div class="result-icon">🍽️</div>
+      <h3>Понятная система питания</h3>
+      <p>Рацион становится разнообразным, сбалансированным и легко вписывается в повседневную жизнь.</p>
+    </div>
+    <div class="result-card">
+      <div class="result-icon">✨</div>
+      <h3>Улучшение самочувствия</h3>
+      <p>Больше энергии, меньше колебаний аппетита и тяги к сладкому, лучше общее состояние.</p>
+    </div>
+    <div class="result-card">
+      <div class="result-icon">🧘</div>
+      <h3>Здоровые пищевые привычки</h3>
+      <p>Спокойное и осознанное отношение к еде — без постоянного чувства вины и строгих запретов.</p>
+    </div>
+    <div class="result-card">
+      <div class="result-icon">🫀</div>
+      <h3>Поддержка здоровья</h3>
+      <p>Рацион помогает поддерживать лечение и снижать риски развития хронических заболеваний.</p>
+    </div>
+    <div class="result-card">
+      <div class="result-icon">💡</div>
+      <h3>Уверенность в выборе</h3>
+      <p>Вы начинаете лучше понимать сигналы своего организма и чувствовать себя увереннее в вопросах питания.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-tag">Стоимость услуг</div>
+  <h2 class="section-title">Форматы <em>консультаций</em></h2>
+
+  <div class="pricing-columns">
+
+    <!-- Endocrinology -->
+    <div class="pricing-col">
+      <div class="pricing-col-header">
+        <div class="pricing-col-icon">🦋</div>
+        <h3>Эндокринология</h3>
+        <p>Онлайн-консультация<br>Zoom / Яндекс.Телемост</p>
+      </div>
+      <div class="pricing-items">
+        <div class="pricing-item">
+          <div class="pi-info">
+            <div class="pi-name">Первичная консультация</div>
+            <div class="pi-detail">40–60 минут</div>
+          </div>
+          <div class="pi-price">3 500 ₽</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pi-info">
+            <div class="pi-name">Повторная консультация</div>
+            <div class="pi-detail">40–60 минут · в течение 3 месяцев</div>
+          </div>
+          <div class="pi-price">3 000 ₽</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pi-info">
+            <div class="pi-name">Консультация по переписке</div>
+            <div class="pi-detail">В удобном мессенджере в течение дня</div>
+          </div>
+          <div class="pi-price">1 500 ₽</div>
+        </div>
+        <div class="pricing-item pricing-item--featured">
+          <div class="pi-info">
+            <div class="pi-name">Сопровождение 1 месяц</div>
+            <div class="pi-detail">Мессенджер + 1 онлайн-встреча до 40 мин<br>После первичной консультации</div>
+          </div>
+          <div class="pi-price">6 000 ₽</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dietology -->
+    <div class="pricing-col pricing-col--accent">
+      <div class="pricing-col-header">
+        <div class="pricing-col-icon">🥗</div>
+        <h3>Диетология</h3>
+        <p>Онлайн-консультация<br>Zoom / Яндекс.Телемост</p>
+      </div>
+
+      <div class="pricing-notice">
+        <span class="notice-icon">📝</span>
+        <span>Перед консультацией прошу вести <strong>дневник питания 3–4 дня</strong>. После этого я провожу оценку и готовлю индивидуальные рекомендации в PDF.</span>
+      </div>
+
+      <div class="pricing-items">
+        <div class="pricing-item">
+          <div class="pi-info">
+            <div class="pi-name">Первичная консультация</div>
+            <div class="pi-detail">60 минут · анализ питания + PDF с рекомендациями</div>
+          </div>
+          <div class="pi-price">5 000 ₽</div>
+        </div>
+        <button class="pi-expand-btn" onclick="toggleDetails('diet-details')">
+          Что входит в первичную консультацию ↓
+        </button>
+        <div class="pi-details" id="diet-details">
+          Комплексный анализ питания · персональная корректировка рациона · оценка макро- и микронутриентного состава · примерный рацион под вашу жизнь · разбор страхов и мифов о питании · PDF-документ с рекомендациями по итогу встречи
+        </div>
+
+        <div class="pricing-item">
+          <div class="pi-info">
+            <div class="pi-name">Повторная консультация</div>
+            <div class="pi-detail">40 минут · в течение 1 месяца после первичной</div>
+          </div>
+          <div class="pi-price">3 500 ₽</div>
+        </div>
+
+        <div class="pricing-item pricing-item--featured">
+          <div class="pi-info">
+            <div class="pi-name">Сопровождение 1 месяц</div>
+            <div class="pi-detail">Мессенджер 08:00–20:00 МСК + 1 онлайн-встреча 40–60 мин</div>
+          </div>
+          <div class="pi-price">10 000 ₽</div>
+        </div>
+        <button class="pi-expand-btn" onclick="toggleDetails('support-details')">
+          Что входит в сопровождение ↓
+        </button>
+        <div class="pi-details" id="support-details">
+          8 недель на связи · постоянная корректировка рекомендаций · поддержка при срывах и эмоциональном голоде · определяем режим питания и размеры порций · учитесь понимать голод и насыщение · советы по выбору блюд в кафе, на праздниках, в командировках
+        </div>
+
+        <div class="pricing-item">
+          <div class="pi-info">
+            <div class="pi-name">Продление сопровождения</div>
+            <div class="pi-detail">Второй и последующие месяцы со скидкой</div>
+          </div>
+          <div class="pi-price">9 000 ₽</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pricing-cta">
+    <a href="https://olimp5.ru/doctors/voronova-yana-nikolaevna/" target="_blank" class="btn-primary">
+      📆 Записаться на консультацию
+    </a>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section">
   <div class="section-tag" style="justify-content:center">Запись на приём</div>
@@ -616,5 +1340,27 @@
   </div>
 </footer>
 
+
+<script>
+
+function toggleDetails(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+  const btn = el.previousElementSibling;
+  btn.textContent = el.classList.contains('open')
+    ? btn.textContent.replace('↓','↑')
+    : btn.textContent.replace('↑','↓');
+}
+
+function toggleEdu() {
+  const list = document.getElementById('eduList');
+  const btn  = document.getElementById('eduBtn');
+  const span = btn.querySelector('span');
+  const isOpen = list.classList.contains('visible');
+  list.classList.toggle('visible');
+  btn.classList.toggle('open');
+  span.textContent = isOpen ? 'Показать дипломы и сертификаты' : 'Скрыть';
+}
+</script>
 </body>
 </html>
